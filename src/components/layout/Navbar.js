@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Navbar = () => {
   return (
@@ -8,8 +9,8 @@ export const Navbar = () => {
       </h1>
       <ul>
         <li>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </nav>
