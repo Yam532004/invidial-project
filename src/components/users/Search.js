@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Users } from "./User";
+import { Users } from "./Users";
 
-export const Search = () => {
+const Search = () => {
   const [text, setText] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -49,7 +49,7 @@ export const Search = () => {
           className="btn btn-success btn-block"
         />
       </form>
-      {users.length > 0 &&(
+      {users.length > 0 && (
         <button className="btn btn-danger btn-block" onClick={clearUsers}>
           Clear
         </button>
@@ -58,4 +58,4 @@ export const Search = () => {
     </div>
   );
 };
-
+export default Search;
