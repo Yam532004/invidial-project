@@ -17,6 +17,10 @@ export const Search = () => {
     }
   };
 
+  const clearUsers = () => {
+    setUsers([]);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === "") {
@@ -45,6 +49,11 @@ export const Search = () => {
           className="btn btn-success btn-block"
         />
       </form>
+      {users.length > 0 &&(
+        <button className="btn btn-danger btn-block" onClick={clearUsers}>
+          Clear
+        </button>
+      )}
       <Users users={users} />
     </div>
   );
