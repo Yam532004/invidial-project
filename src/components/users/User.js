@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import Repo from "../repos/Repos";
+import Repos from "../repos/Repos";
 
 const User = () => {
   const { id } = useParams();
@@ -121,6 +121,11 @@ const User = () => {
         <div className="badge badge-success">Following: {following}</div>
         <div className="badge badge-light">Responsitory: {public_repos}</div>
         <div className="badge badge-dark">Gifts: {public_gists}</div>
+      </div>
+      <div className="card text-center">
+        {repos.map((repo) => (
+          <p>{repo.name}</p>
+        ))}
       </div>
     </Fragment>
   );
