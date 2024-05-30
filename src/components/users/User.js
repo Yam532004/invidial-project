@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import Repo from "../repos/Repos";
+import Repos from "../repos/Repos";
 
 const User = () => {
   const { id } = useParams();
@@ -14,6 +14,7 @@ const User = () => {
         `https://api.github.com/users/${userName}`
       );
       const data = response.data;
+      console.log("data: ", data);
       setUser(data);
     } catch (error) {
       console.log("Error fetching user: ", error.message);
@@ -121,6 +122,9 @@ const User = () => {
         <div className="badge badge-success">Following: {following}</div>
         <div className="badge badge-light">Responsitory: {public_repos}</div>
         <div className="badge badge-dark">Gifts: {public_gists}</div>
+      </div>
+      <div className="card text-center">
+        <Repos props={repos} />
       </div>
     </Fragment>
   );
