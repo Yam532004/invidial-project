@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Users } from "./Users";
-
 const Search = () => {
-  const [text, setText] = useState([]);
+  const currentSearch = localStorage.getItem("text")
+  console.log("currentSearch ", currentSearch);
+  const [text, setText] = useState("");
   const [users, setUsers] = useState([]);
 
   const searchUsers = async (text) => {
@@ -16,6 +17,9 @@ const Search = () => {
       console.error("Error fetching data: ", error);
     }
   };
+  useEffect(() => {
+    searchUsers(currentSearch);
+  }, [currentSearch]);
 
   const clearUsers = () => {
     setUsers([]);
@@ -27,6 +31,7 @@ const Search = () => {
       alert("Please enter something");
     } else {
       searchUsers(text);
+      localStorage.setItem("text", text);
       setText("");
     }
   };
@@ -39,7 +44,7 @@ const Search = () => {
         <input
           type="text"
           name="text"
-          placeholder="Search User"
+          placeholder="Search user"
           value={text}
           onChange={onChange}
         />
