@@ -14,6 +14,7 @@ const User = () => {
         `https://api.github.com/users/${userName}`
       );
       const data = response.data;
+      console.log("data: ", data);
       setUser(data);
     } catch (error) {
       console.log("Error fetching user: ", error.message);
@@ -123,9 +124,7 @@ const User = () => {
         <div className="badge badge-dark">Gifts: {public_gists}</div>
       </div>
       <div className="card text-center">
-        {repos.map((repo) => (
-          <p>{repo.name}</p>
-        ))}
+        <Repos props={repos} />
       </div>
     </Fragment>
   );
