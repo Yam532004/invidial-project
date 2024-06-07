@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Users } from "./Users";
 const Search = () => {
-  const currentSearch = localStorage.getItem("text")
+  const currentSearch = localStorage.getItem("text");
   console.log("currentSearch ", currentSearch);
   const [text, setText] = useState("");
   const [users, setUsers] = useState([]);
@@ -23,8 +23,12 @@ const Search = () => {
 
   const clearUsers = () => {
     setUsers([]);
+    if (typeof text === "string" && text.length > 0) {
+      localStorage.setItem(text, ""); // Lưu trữ giá trị rỗng trong localStorage
+    } else {
+      console.error('The "text" variable must be a non-empty string');
+    }
   };
-
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === "") {

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  Route,
   BrowserRouter as Router,
-  Switch,
 } from "react-router-dom/cjs/react-router-dom.min";
 import "./App.css";
 import { Navbar } from "./components/layout/Navbar";

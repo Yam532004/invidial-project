@@ -4,7 +4,7 @@ function RepoItem(props) {
     <div className="repo-items">
       <div className="repo-item">
         <div className="repo-item-name">
-          <a href={repo.html_url} target="_blank">
+          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
             {repo.full_name}
           </a>
         </div>
